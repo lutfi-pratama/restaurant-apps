@@ -1,0 +1,412 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+main {
+  padding: 30px 0;
+}
+
+.skip-to-content {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 999;
+  transform: translate(-50%, -100%);
+  display: block;
+  padding: 15px 16px;
+  background-color: white;
+  color: black;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.skip-to-content:focus {
+  text-decoration: underline;
+  transform: translate(-50%, 0);
+  transition: transform 0.3s;
+}
+
+.showing-mobile-menu {
+  transform: translateX(0);
+  transition: transform 0.3s;
+}
+
+/* 
+  APP BAR 
+*/
+
+.app-bar {
+  padding: 8px 16px;
+  background-color: white;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  text-transform: lowercase;
+}
+
+.app-bar .app-bar__menu {
+  display: flex;
+  align-items: center;
+}
+
+.app-bar .app-bar__menu button {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.app-bar .app-bar__brand {
+  display: flex;
+  align-items: center;
+}
+
+.app-bar .app-bar__brand h1 {
+  color: #db0000;
+  text-transform: uppercase;
+  font-size: 22px;
+  user-select: none;
+}
+
+.app-bar .app-bar__navigation {
+  position: absolute;
+  top: 50px;
+  left: -180px;
+  width: 150px;
+  transition: all 0.3s;
+  padding: 5px;
+  background-color: white;
+  overflow: hidden;
+}
+
+.app-bar .app-bar__navigation.open {
+  left: 0;
+}
+
+.app-bar .app-bar__navigation ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 5px;
+  width: 100%;
+  font-size: 1rem;
+  padding: 15px;
+}
+
+.app-bar .app-bar__navigation ul li::after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  background: rgb(230, 85, 85);
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+.app-bar .app-bar__navigation ul li:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.jumbotron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  width: 100%;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+
+.jumbotron img {
+  position: absolute;
+  z-index: -1;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  align-self: center;
+  filter: blur(0.7px) brightness(20%) grayscale(30%);
+}
+
+.jumbotron > div {
+  padding: 0 20px;
+}
+
+.jumbotron div > * {
+  color: white;
+}
+
+.jumbotron > div h1 {
+  text-transform: lowercase;
+  font-size: 3.5rem;
+  text-align: center;
+}
+
+.subtitle {
+  font-weight: 300;
+}
+
+.jumbotron > div h2 {
+  border-top: 1px solid white;
+  padding-top: 5px;
+  font-weight: 300;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/*
+   Content
+*/
+
+img {
+  display: block;
+}
+
+#top-restaurants {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#top-restaurants > h2 {
+  font-size: 2rem;
+}
+
+#top-restaurants h3 {
+  font-size: 0.9rem;
+  padding: 0 20px;
+}
+
+#top-restaurants > h2,
+#top-restaurants > h3 {
+  text-align: center;
+}
+
+/* #restaurant {
+  display: grid;
+  margin: 30px auto;
+  grid-template-columns: 1fr;
+  row-gap: 40px;
+} */
+
+/* .cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 1em;
+}
+
+.card__item {
+  border: 2px solid gray;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  margin: 5px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.card__item:hover {
+  box-shadow: 0 6px 10px 0 rgb(15, 64, 129);
+}
+
+.card__item > a {
+  text-decoration: none;
+  color: unset;
+}
+
+.card__item > a:active {
+  color: unset;
+}
+
+.card__image {
+  position: relative;
+}
+
+.card__image img {
+  width: 100%;
+  max-height: 160px;
+  object-fit: cover;
+}
+
+.card__image span {
+  position: absolute;
+  top: 5px;
+  padding: 5px;
+  min-width: 44px;
+  border-radius: 25px;
+}
+
+.card__imageLeft {
+  background-color: rgb(255, 252, 82);
+  left: 5px;
+}
+
+.card__imageRight {
+  right: 5px;
+  background-color: var(--pink);
+  color: #000000;
+  font-weight: 700;
+}
+
+.card__content {
+  padding: 0 1em 1em 1em;
+}
+
+.card__content > h3 {
+  padding: 0.5em;
+}
+
+.card__content > p {
+  text-align: justify;
+  max-height: 160px;
+  overflow: hidden;
+} */
+
+
+#top-restaurants__ul {
+  display: grid;
+  margin: 30px auto;
+  grid-template-columns: 1fr;
+  row-gap: 40px;
+}
+
+.restaurant-item {
+  display: block;
+  width: 90%;
+  max-width: 400px;
+  overflow: hidden;
+  border-radius: 8px; 
+  list-style-type: none;
+  padding-bottom: 10px;
+  justify-self: center;
+  transition: all 0.3s;
+}
+
+.restaurant-item__name {
+  text-decoration: none;
+  display: block;
+}
+
+.restaurant-item__name h2 {
+  display: inline-block;
+  position: relative;
+  color: black;
+}
+
+.restaurant-item header {
+  margin-bottom: 10px;
+}
+
+.restaurant-item header,
+.restaurant-item .restaurant-description {
+  padding: 0 10px;
+}
+
+.restaurant-item:hover {
+  box-shadow: 0 6px 12px #dbdbdb;
+  transition: all 0.3s;
+}
+
+.restaurant-item header h2 {
+  margin: 10px 0 5px;
+}
+
+.restaurant-description {
+  font-size: 0.8rem;
+  line-height: 1.6em;
+  letter-spacing: 0.9px;
+  color: #333;
+}
+
+.restaurant-item__image {
+  height: 150px;
+  overflow: hidden;
+}
+
+.restaurant-item__image img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.restaurant-item__metadata {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 10px;
+  color: #333;
+}
+
+.restaurant-item__metadata > p {
+  font-size: 0.9rem;
+} 
+
+ion-icon {
+  margin-right: 3px;
+}
+
+
+/*
+  Footer
+*/
+
+footer {
+  font-size: 0.9rem;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 600px) {
+  #top-restaurants {
+    width: 90%;
+  }
+
+  #top-restaurants__ul {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 50px;
+  }
+
+  #top-restaurants > h2 {
+    font-size: 2.2rem;
+  }
+
+  .jumbotron > div h1 {
+    font-size: 4rem;
+  }
+
+  .jumbotron > div h2 {
+    font-size: 0.9rem;
+  }
+}
+
+@media only screen and (min-width: 956px) {
+  #top-restaurants__ul {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 70px;
+  }
+
+  #top-restaurants > h2 {
+    font-size: 2.5rem;
+  }
+
+  .jumbotron > div h1 {
+    font-size: 5rem;
+  }
+
+  .jumbotron > div h2 {
+    font-size: 1rem;
+  }
+}
