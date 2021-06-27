@@ -1,12 +1,25 @@
+import FavoriteRestoIdb from '../../data/favoriteresto-idb';
+import { createDishItemTemplate } from '../templates/template-creator';
+
 const OurFavorites = {
     async render() {
       return `
-        <h2>Our Favorites page</h2>
+        <section id="top-restaurants">
+          <h2 tabindex="0">Our Favorite Restaurant</h2>
+          <ul id="top-restaurants__ul">
+
+          </ul>
+        </section>
       `;
     },
    
     async afterRender() {
-      // Fungsi ini akan dipanggil setelah render()
+      const dish = await FavoriteRestoIdb.getAllDish();
+      const dishContainer = document.getElementById("top-restaurants__ul");
+
+      dish.forEach((item) => {
+        dishContainer.innerHTML += createDishItemTemplate(item);
+      });
     },
   };
    

@@ -18,7 +18,7 @@ const Home = {
     // Fungsi ini akan dipanggil setelah render()
 
     const dish = await TheRestoDbSource.List();
-    console.log(dish);
+    // console.log(dish);
     const dishContainer = document.getElementById("top-restaurants__ul");
     if (dish && dish.length > 0) {
       dish.forEach((item) => {

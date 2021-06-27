@@ -7,7 +7,7 @@ const createDishItemTemplate = (data) =>
     </div>
 
     <header>
-        <a href="#" class="restaurant-item__name" aria-label="Restaurant name: ${data.name}."> 
+        <a href="${`/#/detail/${data.id}`}" class="restaurant-item__name" aria-label="Restaurant name: ${data.name}."> 
           <h2>${data.name}</h2> 
         </a>
 
@@ -27,25 +27,25 @@ const createDishItemTemplate = (data) =>
   </li>`;
 
 const createDishDetailTemplate = (data) => `
-  <div class="detail__header">
+  <div class="detail_header">
     <picture>
-      <source type="image/webp" srcset=${CONFIG.IMG.M}${data.pictureId}/>
-      <source type="image/jpeg" srcset=${CONFIG.IMG.M}${data.pictureId}/>
+      <source type="image/webp" srcset=${CONFIG.IMG.Medium}${data.pictureId}/>
+      <source type="image/jpeg" srcset=${CONFIG.IMG.Medium}${data.pictureId}/>
       <source media="(max-width: 600px)" srcset=${CONFIG.IMG.S}${
   data.pictureId
 }>
-      <img class="detail__poster lazyload" data-src=${CONFIG.IMG.M}${
+      <img class="detail_poster lazyload" data-src=${CONFIG.IMG.Medium}${
   data.pictureId
 } alt=${data.name}/>
     </picture>
-    <h2 class="detail__title">${data.name.toUpperCase()}</h2>
+    <h2 class="detail_title">${data.name.toUpperCase()}</h2>
   </div>
-  <div class="detail__info">
+  <div class="detail_info">
     <h3>INFORMATION</h3>
     <p>City : ${data.city}</p>
     <p>Address : ${data.address}</p>
     <p>Rating : ${data.rating}⭐️</p>
-    <div class="info__food">
+    <div class="info_food">
       <h4>FOOD</h4>
       <ul>
         <li>${data.menus.foods[0].name}</li>
@@ -53,7 +53,7 @@ const createDishDetailTemplate = (data) => `
         <li>${data.menus.foods[2].name}</li>
       </ul>
     </div>
-    <div class="info__drinks">
+    <div class="info_drinks">
       <h4>DRINKS</h4>
       <ul>
         <li>${data.menus.drinks[0].name}</li>
@@ -61,7 +61,7 @@ const createDishDetailTemplate = (data) => `
         <li>${data.menus.drinks[2].name}</li>
       </ul>
     </div>
-    <div class="info__categories">
+    <div class="info_categories">
       <h4>CATEGORIES</h4>
       <span>${data.categories[0].name}</span>
       ${
@@ -71,11 +71,11 @@ const createDishDetailTemplate = (data) => `
       }
     </div>
   </div>
-  <div class="detail__overview">
+  <div class="detail_overview">
     <h3>Overview</h3>
     <p>${data.description}</p>
   </div>
-  <div class="detail__reviews">
+  <div class="detail_reviews">
     <h3>Reviews</h3>
     <p>Oleh ${data.customerReviews[0].name} : </p>
     <p>${data.customerReviews[0].review}</p>
@@ -83,7 +83,21 @@ const createDishDetailTemplate = (data) => `
   </div>
 `;
 
+const createLikeRestoButton = () => `
+  <button aria-label="Favorite this resto" id="likeButton" class="like">
+    <i class="fa fa-heart-o" aria-hidden="true"></i>
+  </button>
+`;
+
+const createUnlikeRestoButton = () => `
+  <button aria-label="Unfavourite this resto" id="likeButton" class="like">
+    <i class="fa fa-heart" aria-hidden="true"></i>
+  </button>
+`;
+
 export {
     createDishDetailTemplate,
     createDishItemTemplate,
+    createLikeRestoButton,
+    createUnlikeRestoButton,
 };

@@ -356,6 +356,120 @@ ion-icon {
 }
 
 
+/* 
+  Detailed Page
+*/
+
+.container .center{
+  text-align: center;
+  padding: 20px;
+}
+
+.center h2{
+  font-size: 2.5rem;
+}
+
+.detail {
+  display: grid;
+  grid-template-areas: "detailHeader detailHeader detailInfo" "detailOverview detailOverview detailOverview" "detailReviews detailReviews detailReviews";
+  
+  font-size: 1rem;
+  margin-top: 30px;
+}
+
+.detail > div {
+  margin: auto;
+}
+
+.detail_header {
+  grid-area: detailHeader;
+}
+
+.detail_poster {
+  width: 90%;
+  margin: auto;
+}
+
+.detail_title {
+  color: #0d7583;
+  text-align: center;
+  padding: 30px;
+}
+
+.detail_info {
+  grid-area: detailInfo;
+  text-align: left;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 50px;
+}
+
+.detail_info > div {
+  margin-top: 0.5em;
+}
+
+.detail_info > div > ul {
+  padding: 5px;
+  list-style-type: none;
+}
+
+.detail_overview {
+  border-top: #0d7583 dashed 2px;
+  padding: 35px;
+  grid-area: detailOverview;
+  text-align: justify;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.detail_reviews {
+  grid-area: detailReviews;
+  padding: 35px;
+  text-align: left;
+  margin-left: 0 !important;
+  padding-bottom: 180px;
+}
+
+.info_categories > h4 {
+  margin: 0.5em 0;
+}
+
+.info_categories > span {
+  padding: 5px 15px;
+  color: white;
+  background-color: #db0000;
+  border-radius: 20px;
+  margin-right: 5px;
+}
+
+
+/*
+   Like
+*/
+.like {
+  font-size: 18px;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background-color: #db0000;
+  color: white;
+  border: 0;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#no_result {
+  display: block !important;
+  margin: 40vh 50px;
+  text-align: center;
+}
+
+
 /*
   Footer
 */
@@ -369,44 +483,4 @@ footer {
   justify-content: center;
 }
 
-@media only screen and (min-width: 600px) {
-  #top-restaurants {
-    width: 90%;
-  }
 
-  #top-restaurants__ul {
-    grid-template-columns: repeat(2, 1fr);
-    row-gap: 50px;
-  }
-
-  #top-restaurants > h2 {
-    font-size: 2.2rem;
-  }
-
-  .jumbotron > div h1 {
-    font-size: 4rem;
-  }
-
-  .jumbotron > div h2 {
-    font-size: 0.9rem;
-  }
-}
-
-@media only screen and (min-width: 956px) {
-  #top-restaurants__ul {
-    grid-template-columns: repeat(3, 1fr);
-    row-gap: 70px;
-  }
-
-  #top-restaurants > h2 {
-    font-size: 2.5rem;
-  }
-
-  .jumbotron > div h1 {
-    font-size: 5rem;
-  }
-
-  .jumbotron > div h2 {
-    font-size: 1rem;
-  }
-}
