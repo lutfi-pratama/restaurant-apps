@@ -1,20 +1,21 @@
+/* eslint-disable no-underscore-dangle */
 import NotificationHelper from './notification-helper';
 
 const WebSocketInitiator = {
-    init(url) {
-        const webSocket = new WebSocket(url);
-        webSocket.onmessage = this._onMessageHandler;
-    },
+  init(url) {
+    const webSocket = new WebSocket(url);
+    webSocket.onmessage = this._onMessageHandler;
+  },
 
-    _onMessageHandler(message) {
-        const movie = JSON.parse(message.data);
-        NotificationHelper.sendNotification({
-            title: `${movie.title} is on cinema!`,
-            options: {
-                body: movie.overview,
-            },
-        });
-    },
+  _onMessageHandler(message) {
+    const movie = JSON.parse(message.data);
+    NotificationHelper.sendNotification({
+      title: `${movie.title} is on cinema!`,
+      options: {
+        body: movie.overview,
+      },
+    });
+  },
 };
 
 export default WebSocketInitiator;

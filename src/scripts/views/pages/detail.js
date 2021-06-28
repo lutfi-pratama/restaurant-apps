@@ -17,20 +17,20 @@ const Detail = {
       </div>
     `;
   },
-  
+
   async afterRender() {
-    const loader = document.querySelector("#loading");
+    const loader = document.querySelector('#loading');
     LoaderInitiator.displayLoading(loader);
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const items = await TheRestoDbSource.Details(url.id);
     LoaderInitiator.hideLoading(loader);
     const { restaurant } = items;
-    const detailContainer = document.getElementById("resto_details");
+    const detailContainer = document.getElementById('resto_details');
     detailContainer.innerHTML = createDishDetailTemplate(restaurant);
     // console.log(items);
 
     LikeButtonInitiator.init({
-      likeButtonContainer: document.getElementById("likeButtonContainer"),
+      likeButtonContainer: document.getElementById('likeButtonContainer'),
       resto: {
         id: restaurant.id,
         name: restaurant.name,
@@ -42,5 +42,5 @@ const Detail = {
     });
   },
 };
-  
+
 export default Detail;

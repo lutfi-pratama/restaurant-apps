@@ -1,7 +1,6 @@
 import CONFIG from '../../globals/api-endpoint';
 
-const createDishItemTemplate = (data) =>
-  `<li id=${data.id} class="restaurant-item" tebindex="0">
+const createDishItemTemplate = (data) => `<li id=${data.id} class="restaurant-item" tebindex="0">
     <div class="restaurant-item__image">
         <img src="${CONFIG.IMG.Small}${data.pictureId}" alt=" " aria-hidden="true"/>
     </div>
@@ -21,7 +20,7 @@ const createDishItemTemplate = (data) =>
     </header>
 
     <p class="restaurant-description" aria-label="Description: ${data.description}">
-        ${`${data.description.substr(0,200)} ... `}
+        ${`${data.description.substr(0, 200)} ... `}
     </p>
     
   </li>`;
@@ -65,10 +64,10 @@ const createDishDetailTemplate = (data) => `
       <h4>CATEGORIES</h4>
       <span>${data.categories[0].name}</span>
       ${
-        data.categories.length > 1
-          ? `<span>${data.categories[1].name}</span>`
-          : ``
-      }
+  data.categories.length > 1
+    ? `<span>${data.categories[1].name}</span>`
+    : ''
+}
     </div>
   </div>
   <div class="detail_overview">
@@ -96,8 +95,8 @@ const createUnlikeRestoButton = () => `
 `;
 
 export {
-    createDishDetailTemplate,
-    createDishItemTemplate,
-    createLikeRestoButton,
-    createUnlikeRestoButton,
+  createDishDetailTemplate,
+  createDishItemTemplate,
+  createLikeRestoButton,
+  createUnlikeRestoButton,
 };
