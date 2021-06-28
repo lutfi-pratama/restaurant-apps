@@ -1,5 +1,6 @@
 import TheRestoDbSource from '../../data/therestodb-source';
 import { createDishItemTemplate } from "../templates/template-creator";
+import LoaderInitiator from '../../utils/loader-initiator';
 
 const Home = {
   async render() {
@@ -7,6 +8,7 @@ const Home = {
     <section id="top-restaurants">
       <h2 tabindex="0">Top Restaurants</h2>
       <h3 class="subtitle">These are some of the best restaurants we have</h3>
+      <div id="loading"></div>
       <ul id="top-restaurants__ul">
 
       </ul>
@@ -17,8 +19,12 @@ const Home = {
   async afterRender() {
     // Fungsi ini akan dipanggil setelah render()
 
+    // Set Loading
+    const loader = document.querySelector("#loading");
+    LoaderInitiator.displayLoading(loader);
     const dish = await TheRestoDbSource.List();
-    // console.log(dish);
+    LoaderInitiator.hideLoading(loader);
+    
     const dishContainer = document.getElementById("top-restaurants__ul");
     if (dish && dish.length > 0) {
       dish.forEach((item) => {
