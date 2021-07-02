@@ -76,9 +76,15 @@ const createDishDetailTemplate = (data) => `
   </div>
   <div class="detail_reviews">
     <h3>Reviews</h3>
-    <p>Oleh ${data.customerReviews[0].name} : </p>
-    <p>${data.customerReviews[0].review}</p>
-    <p>Pada ${data.customerReviews[0].date}</p>
+    ${data.customerReviews.map(
+    (review) => `
+        <p>Oleh ${review.name} : </p>
+        <p>${review.review}</p>
+        <p>Pada ${review.date}</p>
+        <br>
+      `,
+  )
+    .join('')}
   </div>
 `;
 

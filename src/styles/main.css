@@ -63,7 +63,7 @@ main {
   background-color: transparent;
   border: none;
   font-size: 18px;
-  padding: 8px;
+  padding: 18px;
   cursor: pointer;
 }
 
@@ -428,6 +428,10 @@ ion-icon {
   text-align: left;
   margin-left: 0 !important;
   padding-bottom: 180px;
+}
+
+.detail_reviews h3{
+  margin-bottom: 30px;
 }
 
 .info_categories > h4 {
