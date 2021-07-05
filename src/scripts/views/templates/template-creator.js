@@ -2,7 +2,7 @@ import CONFIG from '../../globals/api-endpoint';
 
 const createDishItemTemplate = (data) => `<li id=${data.id} class="restaurant-item" tebindex="0">
     <div class="restaurant-item__image">
-        <img src="${CONFIG.IMG.Small}${data.pictureId}" alt=" " aria-hidden="true"/>
+        <img src="${CONFIG.IMG.Small}${data.pictureId}" alt="resto ${data.name}" aria-hidden="true"/>
     </div>
 
     <header>
@@ -35,7 +35,7 @@ const createDishDetailTemplate = (data) => `
 }>
       <img class="detail_poster lazyload" data-src=${CONFIG.IMG.Medium}${
   data.pictureId
-} alt=${data.name}/>
+} alt="${data.name}"/>
     </picture>
     <h2 class="detail_title">${data.name.toUpperCase()}</h2>
   </div>
