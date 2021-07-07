@@ -2,6 +2,7 @@ import UrlParser from '../../routes/url-parser';
 import TheRestoDbSource from '../../data/therestodb-source';
 import { createDishDetailTemplate } from '../templates/template-creator';
 import LikeButtonInitiator from '../../utils/like-button-initiator';
+import addNewReview from '../../utils/addNewReview';
 import LoaderInitiator from '../../utils/loader-initiator';
 
 const Detail = {
@@ -14,6 +15,22 @@ const Detail = {
         <div id="loading"></div>
         <div id="resto_details" class="detail container_height"></div>
         <div id="likeButtonContainer"></div>
+
+        <div class="add-reviews">
+          <h2 class="add-review_title">Add New Review</h2>
+          <div class="review_form">
+            <div class="input_form">
+              <div class="review_form_name">
+                  <label for="name">Name</label><br>
+                  <input type="text" name="name" id="reviewerName" placeholder="Input your name" required>
+              </div>
+              <div class="review_form_content">
+                  <label for="content">Review</label><br>
+                  <textarea name="content" id="reviewContent" placeholder="Input your review" required></textarea>
+              </div>
+            </div>
+            <button class="submit" id="submit" aria-label="Submit my review">Add Review</submit>
+          </div>
       </div>
     `;
   },
@@ -27,7 +44,7 @@ const Detail = {
     const { restaurant } = items;
     const detailContainer = document.getElementById('resto_details');
     detailContainer.innerHTML = createDishDetailTemplate(restaurant);
-    // console.log(items);
+    addNewReview.post(url);
 
     LikeButtonInitiator.init({
       likeButtonContainer: document.getElementById('likeButtonContainer'),

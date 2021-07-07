@@ -432,7 +432,7 @@ ion-icon {
   padding: 35px;
   text-align: left;
   margin-left: 0 !important;
-  padding-bottom: 180px;
+  padding-bottom: 50px;
 }
 
 .detail_reviews h3{
@@ -478,6 +478,51 @@ ion-icon {
   text-align: center;
 }
 
+/*
+  Add Review
+*/
+
+.add-reviews > .add-review_title {
+  font-size: 1.5rem;
+  padding: 10px;
+  text-align: center;
+}
+
+.review_form {
+  text-align: center;
+  background-color: #3b444b;
+  color: white;
+  padding: 30px;
+}
+
+.input_form {
+  padding-bottom: 20px;
+}
+
+input#reviewerName {
+  width: 70%;
+  padding: 5px;
+}
+textarea#reviewContent {
+  width: 70%;
+  padding: 5px;
+}
+
+button#submit {
+  padding: 10px 30px;
+  border-radius: 20px;
+  background-color: #ddd;
+  border: none;
+  font-size: 1rem;
+  transition: 0.3s;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button#submit:hover {
+  background-color: rgb(230, 85, 85);
+  color: white;
+}
 
 /*
   Footer

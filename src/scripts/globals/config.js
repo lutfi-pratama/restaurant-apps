@@ -1,4 +1,5 @@
 const CONFIG = {
+  KEY: '12345',
   BASE_URL: 'https://restaurant-api.dicoding.dev',
   DATABASE_NAME: 'feed-app-database',
   DATABASE_VERSION: 1,

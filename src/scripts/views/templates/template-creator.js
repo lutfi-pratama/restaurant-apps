@@ -78,17 +78,22 @@ const createDishDetailTemplate = (data) => `
   </div>
   <div class="detail_reviews">
     <h3>Reviews</h3>
-    ${data.customerReviews.map(
-    (review) => `
-        <p>Oleh ${review.name} : </p>
-        <p>${review.review}</p>
-        <p>Pada ${review.date}</p>
-        <br>
-      `,
-  )
-    .join('')}
+    ${createReviewCard(data.customerReviews)}
   </div>
 `;
+
+const createReviewCard = (data) => {
+  let customerReview = '';
+  data.forEach((review) => {
+    customerReview += `
+      <p>Oleh ${review.name} : </p>
+      <p>${review.review}</p>
+      <p>Pada ${review.date}</p>
+      <br>
+    `;
+  });
+  return customerReview;
+};
 
 const createLikeRestoButton = () => `
   <button aria-label="Favorite this resto" id="likeButton" class="like">
@@ -104,8 +109,8 @@ const createUnlikeRestoButton = () => `
 
 const createEmptyFavorite = () => `
   <div class="empty_container">
-    <h3>Maaf...</h3>
-    <p class="resto-item__not__found">Tidak ada restoran untuk ditampilkan</p>
+    <h3>Sorry...</h3>
+    <p class="resto-item__not__found">There's no one restaurant has been liked</p>
   </div>
 `;
 
@@ -114,5 +119,6 @@ export {
   createDishItemTemplate,
   createLikeRestoButton,
   createUnlikeRestoButton,
+  createReviewCard,
   createEmptyFavorite,
 };

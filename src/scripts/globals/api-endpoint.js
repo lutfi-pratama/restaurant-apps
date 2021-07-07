@@ -8,6 +8,7 @@ const API_ENDPOINT = {
     Medium: `${CONFIG.BASE_URL}/images/medium/`,
     Large: `${CONFIG.BASE_URL}/images/large/`,
   },
+  POST_REVIEW: `${CONFIG.BASE_URL}/review`,
 };
 
 export default API_ENDPOINT;
