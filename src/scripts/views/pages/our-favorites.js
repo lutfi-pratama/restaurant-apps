@@ -1,5 +1,5 @@
 import FavoriteRestoIdb from '../../data/favoriteresto-idb';
-import { createDishItemTemplate } from '../templates/template-creator';
+import { createDishItemTemplate, createEmptyFavorite } from '../templates/template-creator';
 import LoaderInitiator from '../../utils/loader-initiator';
 
 const OurFavorites = {
@@ -17,15 +17,24 @@ const OurFavorites = {
 
   async afterRender() {
     const loader = document.querySelector('#loading');
-    LoaderInitiator.displayLoading(loader);
+    const noDishShowed = document.getElementById('top-restaurants__ul');
     const dish = await FavoriteRestoIdb.getAllDish();
-    LoaderInitiator.hideLoading(loader);
 
-    const dishContainer = document.getElementById('top-restaurants__ul');
+    if(dish.length === 0) {
+      noDishShowed.innerHTML += createEmptyFavorite();
+      noDishShowed.style.textAlign = 'center';
+      noDishShowed.style.display = 'block';
+      noDishShowed.style.marginBottom = '500px';
+    } else {
+      LoaderInitiator.displayLoading(loader);
+      LoaderInitiator.hideLoading(loader);
 
-    dish.forEach((item) => {
-      dishContainer.innerHTML += createDishItemTemplate(item);
-    });
+      const dishContainer = document.getElementById('top-restaurants__ul');
+
+      dish.forEach((item) => {
+        dishContainer.innerHTML += createDishItemTemplate(item);
+      });
+    }
   },
 };
 

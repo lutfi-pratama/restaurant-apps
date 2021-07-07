@@ -1,8 +1,10 @@
 import CONFIG from '../../globals/api-endpoint';
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 const createDishItemTemplate = (data) => `<li id=${data.id} class="restaurant-item" tebindex="0">
     <div class="restaurant-item__image">
-        <img src="${CONFIG.IMG.Small}${data.pictureId}" alt="resto ${data.name}" aria-hidden="true"/>
+        <img class="lazyload" src="${CONFIG.IMG.Small}${data.pictureId}" alt="resto ${data.name}" aria-hidden="true"/>
     </div>
 
     <header>
@@ -100,9 +102,17 @@ const createUnlikeRestoButton = () => `
   </button>
 `;
 
+const createEmptyFavorite = () => `
+  <div class="empty_container">
+    <h3>Maaf...</h3>
+    <p class="resto-item__not__found">Tidak ada restoran untuk ditampilkan</p>
+  </div>
+`;
+
 export {
   createDishDetailTemplate,
   createDishItemTemplate,
   createLikeRestoButton,
   createUnlikeRestoButton,
+  createEmptyFavorite,
 };
