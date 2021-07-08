@@ -20,7 +20,7 @@ const OurFavorites = {
     const noDishShowed = document.getElementById('top-restaurants__ul');
     const dish = await FavoriteRestoIdb.getAllDish();
 
-    if(dish.length === 0) {
+    if (dish.length === 0) {
       noDishShowed.innerHTML += createEmptyFavorite();
       noDishShowed.style.textAlign = 'center';
       noDishShowed.style.display = 'block';

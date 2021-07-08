@@ -4,7 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
 const ImageminMozjpeg = require('imagemin-mozjpeg');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const path = require('path');
 
 module.exports = {
@@ -41,15 +41,15 @@ module.exports = {
       cacheGroups: {
         defaultVendors: {
           test: /[\\/]node_modules[\\/]/,
-          priority: -10
+          priority: -10,
         },
         default: {
           minChunks: 2,
           priority: -20,
-          reuseExistingChunk: true
-        }
-      }
-    }
+          reuseExistingChunk: true,
+        },
+      },
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({

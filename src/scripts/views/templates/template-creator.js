@@ -1,8 +1,10 @@
+/* eslint-disable no-use-before-define */
 import CONFIG from '../../globals/api-endpoint';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
-const createDishItemTemplate = (data) => `<li id=${data.id} class="restaurant-item" tebindex="0">
+const createDishItemTemplate = (data) => `
+  <li id=${data.id} class="restaurant-item" tebindex="0">
     <div class="restaurant-item__image">
         <img class="lazyload" src="${CONFIG.IMG.Small}${data.pictureId}" alt="resto ${data.name}" aria-hidden="true"/>
     </div>
@@ -114,6 +116,32 @@ const createEmptyFavorite = () => `
   </div>
 `;
 
+const createSkeletonTemplate = (count) => {
+  let template = '';
+
+  for (let i = 0; i < count; i += 1) {
+    template += `
+      <li class="restaurant-item">
+        <div class="restaurant-item__image">
+            <img class="lazyload" src="./placeholder.svg" alt="skeleton-img"/>
+        </div>
+
+        <header>
+            <a class="restaurant-item__name"> 
+              <h2>Lorem ipsum dolor sit amet.</h2> 
+            </a>
+        </header>
+
+        <p class="restaurant-description">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt voluptatum veniam amet reprehenderit eligendi doloremque et maxime? Incidunt, nulla assumenda.
+        </p>
+      
+      </li>
+  `;
+  }
+  return template;
+};
+
 export {
   createDishDetailTemplate,
   createDishItemTemplate,
@@ -121,4 +149,5 @@ export {
   createUnlikeRestoButton,
   createReviewCard,
   createEmptyFavorite,
+  createSkeletonTemplate,
 };
