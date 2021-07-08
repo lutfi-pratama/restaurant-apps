@@ -6,7 +6,7 @@
   "scripts": {
     "start-dev": "webpack-dev-server --config webpack.dev.js",
     "build-local": "webpack --config webpack.prod.js",
-    "build": "npm run test && webpack --config webpack.deploy.js",
+    "build": "webpack --config webpack.deploy.js",
     "test": "karma start",
     "lint": "eslint ./src",
     "e2e": "codeceptjs run --steps",
