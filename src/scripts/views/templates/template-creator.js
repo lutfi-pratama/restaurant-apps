@@ -4,9 +4,9 @@ import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 const createDishItemTemplate = (data) => `
-  <li id=${data.id} class="restaurant-item" tebindex="0">
+  <li id=${data.id} class="restaurant-item" tabindex="0">
     <div class="restaurant-item__image">
-        <img class="lazyload" src="${CONFIG.IMG.Small}${data.pictureId}" alt="resto ${data.name}" aria-hidden="true"/>
+        <img class="lazyload" data-src="${CONFIG.IMG.Small}${data.pictureId}" alt="resto ${data.name}" aria-hidden="true"/>
     </div>
 
     <header>
@@ -123,7 +123,7 @@ const createSkeletonTemplate = (count) => {
     template += `
       <li class="restaurant-item">
         <div class="restaurant-item__image">
-            <img class="lazyload" src="./placeholder.svg" alt="skeleton-img"/>
+            <img class="lazyload" data-src="./placeholder.svg" alt="skeleton-img"/>
         </div>
 
         <header>

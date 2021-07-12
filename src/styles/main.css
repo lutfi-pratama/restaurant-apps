@@ -501,11 +501,11 @@ ion-icon {
 
 input#reviewerName {
   width: 70%;
-  padding: 5px;
+  padding: 13px 5px;
 }
 textarea#reviewContent {
   width: 70%;
-  padding: 5px;
+  padding: 50px 5px;
 }
 
 button#submit {
